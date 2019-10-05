@@ -29,6 +29,13 @@ public class LaPazRutasBot extends TelegramLongPollingBot {
 
         message.setChatId(update.getMessage().getChatId());
 
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public String getBotUsername() {
