@@ -3,7 +3,8 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
 public class LaPazRutasBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
-
+        System.out.println(update.getMessage().getText()); // texto de prueba
+        System.out.println(update.getMessage().getFrom().getId()); // id para mantener la conversacion
     }
 
     public String getBotUsername() {
