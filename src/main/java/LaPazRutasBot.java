@@ -32,8 +32,15 @@ public class LaPazRutasBot extends TelegramLongPollingBot {
 
         if (command.equals("/2A")){
 
-            System.out.println(update.getMessage().getFrom().getLastName());
-            message.setText(update.getMessage().getFrom().getLastName());
+            respuesta = "Envia tu Ubacion actual : \n" +
+                    "/1 Aceptar \n" +
+                    "/2 Denegar \n";
+
+        }
+        if (command.equals("/1")){
+
+            respuesta = "Lo sentimos aun no tenemos la opcion disponible";
+
         }
 
         if (command.equals("/myfullname")){
