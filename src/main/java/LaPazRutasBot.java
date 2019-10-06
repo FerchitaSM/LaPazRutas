@@ -3,9 +3,22 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class LaPazRutasBot extends TelegramLongPollingBot {
     SendMessage message;
     String respuesta;
+    URL url;
+
+    {
+        try {
+            url = new URL("https://urgente.bo/sites/default/files/Ruta%20San%20Pedro-%20Achumani%201.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void onUpdateReceived(Update update) {
 //        System.out.println(update.getMessage().getText()); // texto de prueba
 //       System.out.println(update.getMessage().getFrom().getId()); // id para mantener la conversacion
@@ -41,6 +54,16 @@ public class LaPazRutasBot extends TelegramLongPollingBot {
 
         }
 
+        if(command.equals("/7p")){
+            respuesta = url+"\n"+
+                    " Esta es la ruta de Achumani-San Pedro (La imagen esta abajo)\n"+
+                    " Ahora en que puedo ayudarte \n" +
+                    "/1A Buscar la ruta de una linea especifica \n" +
+                    "/2A Buscar minibuses a mi destino \n"+
+                    "/Nada ";
+
+        }
+
         if (command.equals("/2A")){
 
             respuesta = "Envia tu Ubacion actual : \n" +
@@ -57,6 +80,10 @@ public class LaPazRutasBot extends TelegramLongPollingBot {
         if (command.equals("/myfullname")){
             System.out.println(update.getMessage().getFrom().getFirstName()+" "+update.getMessage().getFrom().getLastName());
             message.setText(update.getMessage().getFrom().getFirstName()+" "+update.getMessage().getFrom().getLastName());
+        }
+        if(command.equals("/Nada")){
+            respuesta = " Fue un gusto ayudarte.";
+
         }
         message.setText(respuesta);
 
