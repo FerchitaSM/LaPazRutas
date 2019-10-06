@@ -29,6 +29,17 @@ public class LaPazRutasBot extends TelegramLongPollingBot {
                     "/4AA Buses \n";
 
         }
+        if(command.equals("/2AA")){
+            respuesta = "Buscar la ruta de una linea especifica \nPumakatari \n" +
+                    "/1p Inca Llojeta \n" +
+                    "/2p Villa Salome \n" +
+                    "/3p Chasquipampa \n" +
+                    "/4p Caja Ferroviaria \n"+
+                    "/5p Integradora \n" +
+                    "/6p Irpavi 2 \n" +
+                    "/7p Achumani \n";
+
+        }
 
         if (command.equals("/2A")){
 
